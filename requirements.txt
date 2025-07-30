@@ -5,3 +5,4 @@ requests
 Pillow
 whitenoise
 setuptools
+legacy-cgi
