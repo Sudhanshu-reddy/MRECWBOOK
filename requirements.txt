@@ -1,0 +1,6 @@
+Django
+django-mathfilters
+regex
+requests
+Pillow
+whitenoise

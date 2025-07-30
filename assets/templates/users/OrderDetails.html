@@ -1,0 +1,46 @@
+{%extends 'users/userbase.html'%}
+{%load static%}
+{%block contents%}
+
+<div class="main_title">
+    <h2>View Order Details </h2>
+    <table class="table table-bordered bg-light text-dark">
+        <thead>
+            <tr>
+                <th>S.No</th>
+                <th>User Name</th>
+                <th>Book Names</th>
+                <th>Book IDs</th>
+                <th>Total Price</th>
+                <th>Quantity</th>
+                <th>DeliveryAddress</th>
+                <th>PaymentMode</th>  
+                <th>CardDetails</th>  
+                <th>PaymentStatus</th> 
+                <th>DeliveryStatus</th> 
+                <th>OrderDate</th>   
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in data %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>{{ i.username }}</td>
+                <td>{{ i.booknames }}</td>
+                <td>{{ i.bookids }}</td>
+                <td>₹{{ i.total_price }}</td>
+                <td>{{ i.quantities }}</td>
+                <td>₹{{ i.delivery_address }}</td>
+                <td>₹{{ i.payment_mode }}</td>
+                <td>₹{{ i.card_details }}</td>
+                <td>₹{{ i.payment_status }}</td>
+                <td>₹{{ i.delivery_status }}</td>
+                <td>₹{{ i.total }}</td>
+                <td>₹{{ i.order_date }}</td>
+ </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    </div>
+
+{% endblock %}

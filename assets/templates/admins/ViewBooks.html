@@ -1,0 +1,51 @@
+{%extends 'admins/adminbase.html'%}
+{%block contents%}
+
+<div class="main_title">
+						<h2>View Books</h2>
+						<p>
+ <!-- <table border="2px" class="table table-hover"> --> 
+  <table class="table table-bordered bg-light text-dark"> 
+    <thead>
+        <tr>
+            <th>S.No</th>
+            <th>Book Name</th>
+            <th>Book ID</th>
+            <th>Author</th>
+            <th>Publish Year</th>
+            <th>Price</th>
+            <th>Stock</th>
+            <th>Status</th>
+            <th>Cover</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for i in data %}
+        <tr style="color: Black">
+            <td>{{ forloop.counter }}</td>
+            <td>{{ i.bookname }}</td>
+            <td>{{ i.bookid }}</td>
+            <td>{{ i.bookauthor }}</td>
+            <td>{{ i.publishyear }}</td>
+            <td>{{ i.price }}</td>
+            <td>{{ i.stock }}</td>
+            <td>{{ i.status }}</td>
+            <td>
+                {% if i.cover_image %}
+                    <img src="/{{ i.cover_image }}" width="60px" height="80px">
+                {% else %}
+                    No Image
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+
+
+
+                        </p>
+					</div>
+
+{%endblock%}

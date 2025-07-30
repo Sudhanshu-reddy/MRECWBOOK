@@ -1,0 +1,16 @@
+{%extends 'users/userbase.html'%}
+{%load static%}
+{%block contents%}
+
+                  <div class="full slider_cont_section">
+                      <p class="large">User Home Page</p>
+                        {% if messages %}
+                        {% for message in messages %}
+                        <font color='Green'> {{ message }}</font>
+                        {% endfor %}
+                        {% endif %}
+
+                  </div>
+                
+
+{%endblock%}

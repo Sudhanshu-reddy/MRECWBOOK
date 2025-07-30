@@ -1,0 +1,57 @@
+{%extends 'admins/adminbase.html'%}
+{%block contents%}
+
+<div class="main_title">
+						<h2>View Registered users</h2>
+						<p>
+ <!-- <table border="2px" class="table table-hover"> -->
+ <table class="table table-bordered bg-light text-dark">
+    <thead>
+      <tr>
+        <th>S.No</th>
+        <th>Name</th>
+        <th>Login ID</th>
+        <th>Mobile</th>
+        <th>Email</th>
+        <th>Locality</th>
+        <th>Status</th>
+        <th>Activate</th>
+      </tr>
+    </thead>
+    <tbody>
+                                              {% for i in data %}
+                                            <tr style="color: Black">
+                                                <td>{{forloop.counter}}</td>
+                                                <td>{{i.name}}</td>
+                                                <td>{{i.loginid}}</td>
+                                                <td>{{i.mobile}}</td>
+                                                <td>{{i.email}}</td>
+                                                <td>{{i.locality}}</td>
+                                                <td>{{i.status}}</td>
+
+                                                {% if i.status == 'Pending' %}
+                                                <td><a class="btn-link" href="/AdminActivaUsers/?uid={{ i.id }}"
+                                                       style="color:DARKBLUE">Approved</a></td>
+                                                {% else %}
+                                                <td> Activated &nbsp;<a class="btn-link" href="/AdminDeleteUsers/?uid={{ i.id }}">Delete</a></td>
+                                                {% endif %}
+
+ 
+                       
+                                                
+
+
+
+                                            </tr>
+                                            {% endfor %}
+
+    </tbody>
+  </table>
+
+
+
+
+                        </p>
+					</div>
+
+{%endblock%}

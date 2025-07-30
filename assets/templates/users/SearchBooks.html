@@ -1,0 +1,26 @@
+{%extends 'users/userbase.html'%}
+{%load static%}
+{%block contents%}
+
+                  <div class="full slider_cont_section">
+                      <p class="large">User Search  Page</p>
+
+        <form method="GET" action="{% url 'SearchBooks' %}" class="form-inline mb-3">
+    <input type="text" name="query" value="{{ query }}" placeholder="Search by book name, author, or ID" class="form-control mr-2" style="width:300px;">
+    <button type="submit" class="btn btn-primary">Search</button>
+</form>
+
+                        {% if messages %}
+                        {% for message in messages %}
+                        <font color='Green'> {{ message }}</font>
+                        {% endfor %}
+                        {% endif %}
+
+
+ 
+
+ 
+                  </div>
+                
+
+{%endblock%}

@@ -1,0 +1,96 @@
+{%extends 'admins/adminbase.html'%}
+{%load static%}
+{%block contents%}
+ <section>
+         <div class="container-fluid">
+              
+                  <div class="full slider_cont_section">
+                      <h3 class="large">Add Books</h3>
+                      <form action="{% url 'AddBookAction' %}" method="POST"   enctype="multipart/form-data" class="text-primary" style="width:100%">
+    {% csrf_token %}
+
+    <div class="form-group row">
+        <div class="col-md-12">
+            <input type="text" name="bookname" class="form-control" placeholder="Enter Book Name" required>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <div class="col-md-12">
+            <input type="text" name="bookid" class="form-control" placeholder="Enter Book ID" required>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <div class="col-md-12">
+            <input type="text" name="bookauthor" class="form-control" placeholder="Enter Author Name" required>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <div class="col-md-12">
+            <input type="text" name="publishyear" class="form-control" placeholder="Enter Published Year" required>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <div class="col-md-12">
+            <input type="text" name="price" class="form-control" placeholder="Enter Price" required>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <div class="col-md-12">
+            <textarea name="description" rows="3" class="form-control" placeholder="Enter Description" required></textarea>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <div class="col-md-12">
+            <input type="text" name="stock" class="form-control" placeholder="Enter Stock Quantity" required>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <div class="col-md-12">
+            <!-- <input type="text" name="cover_image" class="form-control" placeholder="Enter Cover Image URL or path" required> -->
+            <input type="file" id="Imagepath" name="Imagepath" class="form-control" placeholder="Enter Cover Image URL or path" required>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <div class="col-md-12">
+            <input type="text" name="status" class="form-control" placeholder="Enter Status (e.g. Available, Out of stock)" required>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <div class="col-md-12 text-center">
+            <button type="submit" class="btn btn-block btn-primary text-white py-3 px-5">
+                Add Book
+            </button>
+        </div>
+    </div>
+
+    {% if messages %}
+    <div class="form-group row">
+        <div class="col-md-12">
+            {% for message in messages %}
+            <div class="alert alert-info text-success">{{ message }}</div>
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+</form>
+
+
+
+                  </div> 
+               
+          
+
+
+         </div>
+      </section>
+
+{%endblock%}

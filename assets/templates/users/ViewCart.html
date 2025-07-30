@@ -1,0 +1,39 @@
+{%extends 'users/userbase.html'%}
+{%load static%}
+{%block contents%}
+
+<div class="main_title">
+    <h2>View Cart Items</h2>
+    <table class="table table-bordered bg-light text-dark">
+        <thead>
+            <tr>
+                <th>S.No</th>
+                <th>User</th>
+                <th>Book Name</th>
+                <th>Book ID</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Total</th>
+                <th>Remove</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in data %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>{{ i.username }}</td>
+                <td>{{ i.bookname }}</td>
+                <td>{{ i.bookid }}</td>
+                <td>₹{{ i.price }}</td>
+                <td>{{ i.quantity }}</td>
+                <td>₹{{ i.total }}</td>
+
+                <td><a href="{% url 'DeleteCartItem' i.id %}" class="btn btn-danger btn-sm">Remove</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{% url 'CheckOut'%}" class="btn btn-danger btn-sm">Process to CheckOut</a>
+</div>
+
+{% endblock %}
